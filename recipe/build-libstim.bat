@@ -1,14 +1,16 @@
 @echo on
 
 REM Use _build to avoid conflict with Stim's BUILD directory
+REM Set SIMD_WIDTH=128 (SSE2) to avoid -march=native
 cmake %CMAKE_ARGS% -GNinja ^
     -DCMAKE_BUILD_TYPE=Release ^
     -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
+    -DSIMD_WIDTH=128 ^
     -B _build ^
     .
 if errorlevel 1 exit 1
 
-cmake --build _build --target libstim
+cmake --build _build --target libstim --parallel %CPU_COUNT%
 if errorlevel 1 exit 1
 
 REM Manual install - cmake --install tries to install the stim executable too
