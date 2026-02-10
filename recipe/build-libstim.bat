@@ -18,3 +18,6 @@ copy _build\out\libstim.lib "%LIBRARY_LIB%\stim.lib"
 if errorlevel 1 exit 1
 copy src\stim.h "%LIBRARY_INC%\"
 if errorlevel 1 exit 1
+REM Install all headers that stim.h includes
+xcopy /S /I /Y src\stim "%LIBRARY_INC%\stim"
+if errorlevel 1 exit 1
