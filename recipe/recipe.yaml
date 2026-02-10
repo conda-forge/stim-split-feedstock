@@ -10,7 +10,7 @@ source:
   sha256: 3d606e8ae61bc8a3b40af2aa5ee88a2d4793c38d0d89472195fff069792e5233
 
 build:
-  number: 2
+  number: 3
 
 outputs:
   - package:
@@ -33,10 +33,12 @@ outputs:
             then:
               - test -f $PREFIX/lib/libstim.a
               - test -f $PREFIX/include/stim.h
+              - test -f $PREFIX/include/stim/circuit/circuit.h
           - if: win
             then:
               - if not exist %LIBRARY_LIB%\\stim.lib exit 1
               - if not exist %LIBRARY_INC%\\stim.h exit 1
+              - if not exist %LIBRARY_INC%\\stim\\circuit\\circuit.h exit 1
   - package:
       name: quantumlib-stim
     build:
