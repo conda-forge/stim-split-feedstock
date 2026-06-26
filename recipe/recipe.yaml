@@ -1,5 +1,6 @@
 context:
   version: "1.16.0"
+  python_min: "3.11"
 
 recipe:
   name: stim-split
@@ -77,6 +78,26 @@ outputs:
             then: stim --help
           - if: win
             then: python -c "import stim; rc = stim.main(command_line_args=['--help']); print('Exit code', rc); assert rc == 0"
+  - package:
+      name: stimcirq
+    build:
+      noarch: python
+      script: python -m pip install ./glue/cirq -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+        - pip
+        - setuptools
+      run:
+        - python >=${{ python_min }}
+        - ${{ pin_subpackage("quantumlib-stim", lower_bound="x.x.x", upper_bound="x.x.x") }}
+        - cirq-core
+    tests:
+      - python:
+          imports:
+            - stimcirq
+          pip_check: true
+          python_version: ${{ python_min }}.*
 
 about:
   homepage: https://github.com/quantumlib/Stim
@@ -91,6 +112,7 @@ about:
     This recipe provides:
     - libstim: The C++ library with headers for linking
     - quantumlib-stim: The Python package (imports as `stim`) with CLI
+    - stimcirq: Tools for interoperability between cirq and stim
   license: Apache-2.0
   license_file: LICENSE
   documentation: https://github.com/quantumlib/Stim/blob/main/doc/getting_started.md
