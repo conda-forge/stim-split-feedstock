@@ -8,6 +8,8 @@ recipe:
 source:
   url: https://github.com/quantumlib/Stim/archive/refs/tags/v${{ version }}.tar.gz
   sha256: be54b3efa6f01c16a119e0db99fe1d624f448efd5ab8219cd3da2b75a900682e
+  patches:
+    - pybind11-3-tuple-return.patch
 
 build:
   number: 0
