@@ -82,6 +82,8 @@ outputs:
       name: stimcirq
     build:
       noarch: python
+      skip:
+        - target_platform != "linux-64"
       script: python -m pip install ./glue/cirq -vv --no-deps --no-build-isolation
     requirements:
       host:
