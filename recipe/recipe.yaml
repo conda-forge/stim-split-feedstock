@@ -1,5 +1,5 @@
 context:
-  version: "1.15.0"
+  version: "1.16.0"
 
 recipe:
   name: stim-split
@@ -7,10 +7,12 @@ recipe:
 
 source:
   url: https://github.com/quantumlib/Stim/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 3d606e8ae61bc8a3b40af2aa5ee88a2d4793c38d0d89472195fff069792e5233
+  sha256: be54b3efa6f01c16a119e0db99fe1d624f448efd5ab8219cd3da2b75a900682e
+  patches:
+    - pybind11-3-tuple-return.patch
 
 build:
-  number: 4
+  number: 0
 
 outputs:
   - package:
