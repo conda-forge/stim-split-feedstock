@@ -22,12 +22,20 @@ events using various decoders.
 This recipe provides:
 - libstim: The C++ library with headers for linking
 - quantumlib-stim: The Python package (imports as `stim`) with CLI
+- stimcirq: Tools for interoperability between cirq and stim
 
 Current build status
 ====================
 
 
-<table>
+<table><tr>
+    <td>GitHub Actions</td>
+    <td>
+      <a href="https://github.com/conda-forge/stim-split-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/stim-split-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
+      </a>
+    </td>
+  </tr>
     
   <tr>
     <td>Azure</td>
@@ -41,24 +49,10 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=27355&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/stim-split-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>osx_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=27355&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/stim-split-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=27355&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/stim-split-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -83,6 +77,7 @@ Current release info
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libstim-green.svg)](https://anaconda.org/conda-forge/libstim) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libstim.svg)](https://anaconda.org/conda-forge/libstim) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libstim.svg)](https://anaconda.org/conda-forge/libstim) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libstim.svg)](https://anaconda.org/conda-forge/libstim) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-quantumlib--stim-green.svg)](https://anaconda.org/conda-forge/quantumlib-stim) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/quantumlib-stim.svg)](https://anaconda.org/conda-forge/quantumlib-stim) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/quantumlib-stim.svg)](https://anaconda.org/conda-forge/quantumlib-stim) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/quantumlib-stim.svg)](https://anaconda.org/conda-forge/quantumlib-stim) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-stimcirq-green.svg)](https://anaconda.org/conda-forge/stimcirq) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stimcirq.svg)](https://anaconda.org/conda-forge/stimcirq) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stimcirq.svg)](https://anaconda.org/conda-forge/stimcirq) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stimcirq.svg)](https://anaconda.org/conda-forge/stimcirq) |
 
 Installing libstim
 ==================
@@ -94,16 +89,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `libstim, quantumlib-stim` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `libstim, quantumlib-stim, stimcirq` can be installed with `conda`:
 
 ```
-conda install libstim quantumlib-stim
+conda install libstim quantumlib-stim stimcirq
 ```
 
 or with `mamba`:
 
 ```
-mamba install libstim quantumlib-stim
+mamba install libstim quantumlib-stim stimcirq
 ```
 
 It is possible to list all of the versions of `libstim` available on your platform with `conda`:
